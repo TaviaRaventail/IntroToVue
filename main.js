@@ -6,7 +6,7 @@ var app = new Vue({
         product: 'Socks',
         description: 'A pair of warm, fuzzy socks',
         altText: 'A pair of socks',
-        image: 'vmSocks-green-onWhite.jpg',
+        image: './assets/vmSocks-green-onWhite.jpg',
         inStock: true,
         inventory: 100,
         onSale: true,
@@ -14,13 +14,24 @@ var app = new Vue({
         variants: [
             {
                 variantId: 2234,
-                variantColor: "green"
+                variantColor: "green",
+                variantImage: './assets/vmSocks-green-onWhite.jpg'
             },
             {
                 variantId: 2235,
-                variantColor: "blue"
+                variantColor: "blue",
+                variantImage: "./assets/vmSocks-blue-onWhite.jpg"
             }
-        ]
+        ],
+        cart: 0
 
+    },
+    methods: {
+        addToCart: function() {
+            this.cart += 1
+        }, 
+        updateProduct: function(variantImage) {
+            this.image = variantImage
+        }
     }
 })
